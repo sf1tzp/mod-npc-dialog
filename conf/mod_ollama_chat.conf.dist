@@ -33,8 +33,22 @@ OllamaChat.DebugShowFullPrompt = 0
 # OLLAMA LLM CONNECTION AND INFERENCE
 # --------------------------------------------
 
+# OllamaChat.ApiType
+#     Description: Selects the request/response format used to talk to the LLM backend.
+#                  "ollama" - Ollama's native /api/generate endpoint.
+#                  "openai" - OpenAI-compatible /v1/chat/completions endpoint, as served by
+#                             LM Studio, Ollama's own /v1 shim, vLLM, llama.cpp, etc.
+#                  When set to "openai", remember to point OllamaChat.Url at the
+#                  /v1/chat/completions endpoint (e.g. http://localhost:1234/v1/chat/completions).
+#                  Note: RepeatPenalty, NumCtx, NumThreads and ThinkModeEnableForModule are
+#                  Ollama-specific and are ignored in "openai" mode.
+#     Default:     ollama
+OllamaChat.ApiType = ollama
+
 # OllamaChat.Url
-#     Description: The URL used to query the Ollama API.
+#     Description: The URL used to query the LLM API. Must match OllamaChat.ApiType.
+#                  Ollama:  http://localhost:11434/api/generate
+#                  OpenAI:  http://localhost:1234/v1/chat/completions  (LM Studio default port)
 #     Default:     http://localhost:11434/api/generate
 OllamaChat.Url = http://localhost:11434/api/generate
 
