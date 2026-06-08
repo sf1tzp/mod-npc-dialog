@@ -41,6 +41,11 @@ extern uint32_t   g_EventChatterMaxBotsPerPlayer;
 // --------------------------------------------
 // Ollama LLM API Configuration
 // --------------------------------------------
+// Selects the request/response format used when talking to the LLM
+// backend. "ollama" uses Ollama's native /api/generate endpoint;
+// "openai" uses the OpenAI-compatible /v1/chat/completions endpoint
+// served by LM Studio, Ollama's own /v1 shim, vLLM, llama.cpp, etc.
+extern std::string g_OllamaApiType;
 extern std::string g_OllamaUrl;
 extern std::string g_OllamaModel;
 extern uint32_t    g_OllamaNumPredict;
