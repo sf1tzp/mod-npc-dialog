@@ -40,6 +40,7 @@ uint32_t   g_EventChatterMaxBotsPerPlayer    = 2;
 // --------------------------------------------
 // Ollama LLM API Configuration
 // --------------------------------------------
+std::string g_OllamaApiType    = "ollama";
 std::string g_OllamaUrl        = "http://localhost:11434/api/generate";
 std::string g_OllamaModel      = "llama3.2:1b";
 uint32_t    g_OllamaNumPredict = 40;
@@ -384,6 +385,7 @@ void LoadOllamaChatConfig()
     g_BotReplyChance_Guild            = sConfigMgr->GetOption<uint32_t>("OllamaChat.BotReplyChance.Guild", 5);
     
     g_MaxBotsToPick                   = sConfigMgr->GetOption<uint32_t>("OllamaChat.MaxBotsToPick", 2);
+    g_OllamaApiType                   = sConfigMgr->GetOption<std::string>("OllamaChat.ApiType", "ollama");
     g_OllamaUrl                       = sConfigMgr->GetOption<std::string>("OllamaChat.Url", "http://localhost:11434/api/generate");
     g_OllamaModel                     = sConfigMgr->GetOption<std::string>("OllamaChat.Model", "llama3.2:1b");
     g_OllamaNumPredict                = sConfigMgr->GetOption<uint32_t>("OllamaChat.NumPredict", 40);
